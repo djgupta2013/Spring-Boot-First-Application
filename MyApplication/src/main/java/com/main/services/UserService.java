@@ -1,14 +1,13 @@
 package com.main.services;
 
-import java.sql.SQLException;
 import java.util.List;
 
-import javax.sql.DataSource;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.main.controller.ApplicationController;
 import com.main.model.User;
 import com.main.repository.UserRepository;
 
@@ -17,7 +16,7 @@ import com.main.repository.UserRepository;
 public class UserService {
 	
 	@Autowired
-	DataSource dataSource;
+	ApplicationController applicationController;
 	
 	private final UserRepository userRepository;
 	
@@ -42,29 +41,26 @@ public class UserService {
 	}
 	
 	public String login(User user) {
+		User user2= userRepository.findByEmailAndPassword(user.getEmail(), user.getPassword());
 		
-		try {
-			dataSource.u
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		String pageName = "";
+		
+		if(user2!=null) {
+			if( user2.getEmail().equals(user.getEmail())&&user2.getPassword().equals(user.getPassword())) {
+				pageName = applicationController.welcome();
+			}
+			else if(user2.getEmail().equals(user.getEmail())){
+				pageName = applicationController.incorrect();				
+			}
+			else {
+				pageName = applicationController.registerFirst();
+			}
+		}else {
+			pageName = applicationController.registerFirst();
 		}
-		return null;
-		
+		return pageName;
 	}
-	
-	
-
 
 	
-
-
-	
-
-
-	public boolean saveMyUser(String username, String firstname, String lastname, int age, String password) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 }

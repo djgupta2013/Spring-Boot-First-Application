@@ -17,7 +17,7 @@ public class RestController1 {
 	@Autowired
 	private UserService userService;
 	
-	@GetMapping("/")
+	@GetMapping("/abc")
 	public String hello() {
 		return "This is home Page";
 	}

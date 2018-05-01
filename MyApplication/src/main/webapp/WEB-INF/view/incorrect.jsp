@@ -5,6 +5,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-Enter wrong information
+<h3>Please enter valid email and password</h3>
 </body>
 </html>

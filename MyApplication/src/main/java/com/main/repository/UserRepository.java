@@ -9,5 +9,7 @@ import com.main.model.User;
 public interface UserRepository extends CrudRepository<User, Integer> {
 	
 	List<User> findByEmail(String email);
+	
+	public User findByEmailAndPassword(String email,String password);
 
 }

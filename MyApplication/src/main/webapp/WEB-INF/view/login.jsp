@@ -9,7 +9,7 @@ background-color: #f0f5f5;
 }
 form {border: 3px solid #f1f1f1;}
 
-input[type=email], input[type=password] {
+input[type=email], input[type=password] ,input[type=submit]{
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -101,9 +101,9 @@ span.register {
     <input type="email" placeholder="Enter Email id" name="email" required/>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" minlength="8" required/>
+    <input type="password" placeholder="Enter Password" name="password" minlength="5" required/>
         
-    <button type="submit">Login</button>
+   <input type="submit"   value="Login" >
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
@@ -111,7 +111,7 @@ span.register {
 
   <div class="container" style="background-color:#f1f1f1">
     <!-- <button type="button" class="cancelbtn">Cancel</button> -->
-    <span class="psw"><a href="#">Forgot  password</a></span>
+    <span class="psw"><a href="login/forgetpassword">Forgot  password</a></span>
     <span class="register"><a href="register">New Registration</a></span>
   </div>
 </form>

@@ -192,7 +192,6 @@ button.social-signin.google {
      <input type="text" name="lastname" placeholder="Last Name" required="required"/>
     <input type="number" name="age" placeholder="Age" required="required"/>
     <input type="password" name="password" placeholder="password" required="required"/>
-  <!--   <input type="submit" name="signup" value="Register" /> -->
     <input type="submit"   value="Register" >
   </div>
   </form>
