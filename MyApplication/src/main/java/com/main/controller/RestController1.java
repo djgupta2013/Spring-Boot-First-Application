@@ -1,7 +1,10 @@
 package com.main.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,9 +21,12 @@ public class RestController1 {
 	public String hello() {
 		return "This is home Page";
 	}
+	
+	 
+	 
 	@GetMapping("/save.user")
-	public String saveUser(@RequestParam String username,@RequestParam String firstname,@RequestParam String lastname,@RequestParam int age,@RequestParam String password) {
-		User user=new User(username, firstname, lastname, age, password);
+	public String saveUser(@RequestParam String email,@RequestParam String firstname,@RequestParam String lastname,@RequestParam int age,@RequestParam String password) {
+		User user=new User(email, firstname, lastname, age, password);
 		userService.saveMyUser(user);
 		return "User Saved"; 
 	}

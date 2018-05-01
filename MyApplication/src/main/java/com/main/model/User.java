@@ -10,15 +10,20 @@ public class User {
 	
 	@Id
 	private int id;
-	private String username;
+	private String email;
 	private String firstname;
 	private String lastname;
 	private int age;
 	private String password;
 	
-	public User(String username, String firstname, String lastname, int age, String password) {
+	public User(String email, String password) {
+		this.email = email;
+		this.password = password;
+	}
+	
+	public User(String email, String firstname, String lastname, int age, String password) {
 		super();
-		this.username = username;
+		this.email = email;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.age = age;
@@ -30,12 +35,8 @@ public class User {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
+	
+	
 	public String getFirstname() {
 		return firstname;
 	}
@@ -62,8 +63,14 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", firstname=" + firstname + ", lastname=" + lastname
+		return "User [id=" + id + ", email=" + email + ", firstname=" + firstname + ", lastname=" + lastname
 				+ ", age=" + age + ", password=" + password + "]";
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	

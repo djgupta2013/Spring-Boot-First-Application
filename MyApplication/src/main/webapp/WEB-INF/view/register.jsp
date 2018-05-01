@@ -7,8 +7,8 @@
 body {
   margin: 0;
   padding: 0;
-  background: #99b3ff;
-  font-size: 16px;
+  background: #f0f5f5;
+  font-size: 20px;
   color: #222;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -18,7 +18,7 @@ body {
   position: relative;
   margin: 5% auto;
   width: 600px;
-  height: 400px;
+  height: 450px;
   background: #FFF;
   border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -41,6 +41,8 @@ h1 {
 }
 
 input[type="text"],
+input[type="email"],
+input[type="number"],
 input[type="password"] {
   display: block;
   box-sizing: border-box;
@@ -57,7 +59,9 @@ input[type="password"] {
 }
 
 input[type="text"]:focus,
-input[type="password"]:focus {
+input[type="password"]:focus
+input[type="number"]:focus
+input[type="email"]:focus {
   border-bottom: 2px solid #16a085;
   color: #16a085;
   transition: 0.2s ease;
@@ -176,17 +180,22 @@ button.social-signin.google {
 
 <body>
 
+
   <div id="login-box">
+  
+  <form action="register" method="POST">
   <div class="left">
     <h1>Sign up</h1>
     
-    <input type="text" name="username" placeholder="Username" />
-    <input type="text" name="email" placeholder="E-mail" />
-    <input type="password" name="password" placeholder="Password" />
-    <input type="password" name="password2" placeholder="Retype password" />
-    
-    <input type="submit" name="signup_submit" value="Sign me up" />
+    <input type="email" name="email" placeholder="Email" required="required" />
+    <input type="text" name="firstname" placeholder="First name" required="required" />
+     <input type="text" name="lastname" placeholder="Last Name" required="required"/>
+    <input type="number" name="age" placeholder="Age" required="required"/>
+    <input type="password" name="password" placeholder="password" required="required"/>
+  <!--   <input type="submit" name="signup" value="Register" /> -->
+    <input type="submit"   value="Register" >
   </div>
+  </form>
   
   <div class="right">
     <span class="loginwith">Sign in with<br />social network</span>

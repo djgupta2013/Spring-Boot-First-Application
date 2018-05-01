@@ -67,9 +67,9 @@
 <div class="welcome">
 	
 
-<div class="righr">
+<div class="right">
 			<ul class="nav navbar-nav">
-			  <li><a href="#"><button class="welcome login">Login</button></a></li>
+			  <li><a href="login"><button class="welcome login">Login</button></a></li>
 			  <li><a href="register"><button class="welcome Registration">New Registration</button></a></li>
 			  <li><a href="#"><button class="welcome User">All User</button></a></li>
 			</ul>

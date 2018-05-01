@@ -6,7 +6,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: green;
-  background: #e6ffff;
+  background: #ff9999;
   font-size: 16px;
   color: #222;
   font-family: 'Roboto', sans-serif;
@@ -19,7 +19,7 @@ body {
   width: 600px;
   right: 41
   height: 400px;
-  background: #FFF;
+  background: black;
   border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
@@ -95,11 +95,11 @@ button.welcome.login {
 }
 
 button.welcome.Registration {
-  background: #55ACEE;
+  background: #32508E;
 }
 
 button.welcome.User {
-  background: #32508E;
+  background: black;
 }
 </style>
 
