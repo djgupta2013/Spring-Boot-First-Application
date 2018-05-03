@@ -6,7 +6,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Please register first</h1>
+<h1>Your email id is not register</h1>
 <h3>Please click this button to register </h3>
 <a href="register">register here</a>
 </body>

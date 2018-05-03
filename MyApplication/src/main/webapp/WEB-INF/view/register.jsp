@@ -188,10 +188,10 @@ button.social-signin.google {
     <h1>Sign up</h1>
     
     <input type="email" name="email" placeholder="Email" required="required" />
-    <input type="text" name="firstname" placeholder="First name" required="required" />
-     <input type="text" name="lastname" placeholder="Last Name" required="required"/>
-    <input type="number" name="age" placeholder="Age" required="required"/>
-    <input type="password" name="password" placeholder="password" required="required"/>
+    <input type="text" name="firstname" placeholder="First name" minlength="3" required="required" />
+     <input type="text" name="lastname" placeholder="Last Name" minlength="3" required="required"/>
+    <input type="number" name="age" placeholder="Age"  required="required"/>
+    <input type="password" name="password" placeholder="password" minlength="5" maxlength="15" required="required"/>
     <input type="submit"   value="Register" >
   </div>
   </form>

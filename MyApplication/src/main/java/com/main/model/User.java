@@ -3,6 +3,7 @@ package com.main.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="mytable")
@@ -16,12 +17,27 @@ public class User {
 	private int age;
 	private String password;
 	
+	@Transient
+	private String repassword;
+	
+	
 	public User() {
 		
 	}
+	public User(String email) {
+		this.email = email;	
+	}
+	
 	public User(String email, String password) {
 		this.email = email;
 		this.password = password;
+	}
+	
+	public User(String email, String password, String repassword) {
+		super();
+		this.email = email;
+		this.password = password;
+		this.repassword = repassword;
 	}
 	
 	public User(String email, String firstname, String lastname, int age, String password) {
@@ -76,6 +92,11 @@ public class User {
 		this.email = email;
 	}
 	
-	
+	public String getRepassword() {
+		return repassword;
+	}
+	public void setRepassword(String repassword) {
+		this.repassword = repassword;
+	}	
 
 }

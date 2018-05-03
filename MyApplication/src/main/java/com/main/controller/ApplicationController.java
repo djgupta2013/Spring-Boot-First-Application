@@ -8,12 +8,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.main.model.User;
+import com.main.model.UserPassword;
 import com.main.services.UserService;
 
 @Controller
 public class ApplicationController {
 	@Autowired
 	private UserService userService;
+	
+	
 	
 	
 	@RequestMapping("/")
@@ -50,39 +53,44 @@ public class ApplicationController {
 	 }
 	 
 	 @RequestMapping(value="/login", method = RequestMethod.GET)
-	    public String userLogin(ModelMap model){
+	    public String userLogin(){
 	        return "login";
-	    }
+	    }	
 	 @RequestMapping(value="/login", method = RequestMethod.POST)
 	 public String userLogin(ModelMap model,@RequestParam String email,@RequestParam String password) {
 		 User user=new User(email, password);
 		 return userService.login(user);
 	 }
 	 
-	 @RequestMapping("/login/forgetpassword")
-		public String forgetPassword() {
-			return "forgetPassword";
+	 
+	 
+	 @RequestMapping(value="/forgotpassword", method = RequestMethod.GET)
+	    public String emailPasswordVarify(ModelMap model){
+	        return "forgotpassword";
+	    }
+	 
+	 @RequestMapping(value="/forgotpassword",method = RequestMethod.POST)
+		public String emailPasswordVarify(ModelMap model,@RequestParam String email,@RequestParam String password,@RequestParam String repassword) {
+		 User user=new User(email, password, repassword);
+		 return userService.emailPasswordVarify(user);	
 		}
 	 
-	 /*@RequestMapping("/login")
-	 public String login(HttpServletRequest request) {
-		 request.setAttribute("mode", "login");
-		 return "welcome";
-	 }
+	 
+	 /*@RequestMapping("/login/forgotpassword")
+		public String forgetPassword() {
+			return "forgotPassword";
+		}
+	 
+	 @RequestMapping(value="/login/forgotpassword",method = RequestMethod.POST)
+		public String forgetPassword(ModelMap model,@RequestParam() String password,@RequestParam() String repassword) {
+			
+		 
+		 //User user=new User(password,repassword);
+		 //return userService.emailVarify(user);
+		 return repassword;
+		}*/
 	 
 	 
-	 @RequestMapping("/register")
-	 public String loginUser(@ModelAttribute User user,HttpServletRequest request) {
-		 if(userService.findByEmailAndPassword(user.getEmail(), user.getPassword())!=null) {
-			 return "welcomepage";
-		 }
-		 else {
-			 request.setAttribute("error", "Invalid User and Password");
-			 request.setAttribute("mode", "login");
-		 }
-		 return "welcome";
-	 }
-	*/
 	 
 	
 

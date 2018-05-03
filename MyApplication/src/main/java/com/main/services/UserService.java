@@ -24,7 +24,7 @@ public class UserService {
 		this.userRepository=userRepository;
 	}
 	 
-	
+	//Register
 	public String saveMyUser(User user) {
 		//Optional<User> user1=userRepository.findById(user.getEmail());
 //		 Long email=(long) user.getEmail().hashCode();
@@ -40,25 +40,45 @@ public class UserService {
 		return "";
 	}
 	
+	//login
 	public String login(User user) {
 		User user2= userRepository.findByEmailAndPassword(user.getEmail(), user.getPassword());
-		
+		List<User> user1=userRepository.findByEmail(user.getEmail());
 		String pageName = "";
-		
-		if(user2!=null) {
-			if( user2.getEmail().equals(user.getEmail())&&user2.getPassword().equals(user.getPassword())) {
-				pageName = applicationController.welcome();
-			}
-			else if(user2.getEmail().equals(user.getEmail())){
-				pageName = applicationController.incorrect();				
-			}
-			else {
-				pageName = applicationController.registerFirst();
-			}
-		}else {
-			pageName = applicationController.registerFirst();
+		 try {
+			 if (user2!=null ) {
+					if( user2.getEmail().equalsIgnoreCase(user.getEmail())&&user2.getPassword().equals(user.getPassword())) {
+						pageName = applicationController.welcome();
+					}	
+				}
+			 else if(user1.get(0).getEmail().equals(user.getEmail())){
+			pageName = applicationController.incorrect();				
+		}
+		 } catch (Exception e) {
+			 pageName = applicationController.registerFirst();
 		}
 		return pageName;
+	}
+	
+	//Forget password logic
+	public String emailPasswordVarify(User user) {
+		List<User> user2=  userRepository.findByEmail(user.getEmail());
+		
+		String page="";
+		try {
+			if(user2.get(0).getEmail().equalsIgnoreCase(user.getEmail())) {
+				if(user.getPassword().equals(user.getRepassword())) {
+				int flag=userRepository.setPasswordByEmail(user.getPassword(), user.getEmail());
+				if(flag == 1)
+				System.out.println(flag);
+				page=applicationController.userLogin();
+				}
+			}
+		} catch (Exception e) {
+			page=applicationController.registerFirst();
+		}
+		return page;
+		
 	}
 
 	
