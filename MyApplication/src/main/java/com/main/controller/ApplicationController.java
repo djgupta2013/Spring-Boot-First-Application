@@ -23,10 +23,7 @@ public class ApplicationController {
 	
 	//@RequestMapping(value="/incorrect", method = RequestMethod.GET)
 	
-	@RequestMapping("/newUser")
-	public String registerFirst() {
-		return "registerFirst";
-	}
+	
 	
 	@RequestMapping("/welcome")
 	public String welcome() {
@@ -49,6 +46,11 @@ public class ApplicationController {
 	 
 	 public String userExists() {
 			return "userExists";
+		}
+	 
+	 @RequestMapping("/newUser")
+		public String registerFirstPopUp() {
+			return "registerFirstPopUp";
 		}
 	 
 	 @RequestMapping(value="/login", method = RequestMethod.GET)

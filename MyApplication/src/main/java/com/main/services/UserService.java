@@ -57,7 +57,7 @@ public class UserService {
 			pageName = applicationController.incorrect();				
 		}
 		 } catch (Exception e) {
-			 pageName = applicationController.registerFirst();
+			 pageName = applicationController.registerFirstPopUp();
 		}
 		return pageName;
 	}
@@ -77,7 +77,7 @@ public class UserService {
 				}
 			}
 		} catch (Exception e) {
-			page=applicationController.registerFirst();
+			page=applicationController.registerFirstPopUp();
 		}
 		return page;
 		
