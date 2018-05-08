@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.main.model.User;
-import com.main.model.UserPassword;
 import com.main.services.UserService;
 
 @Controller
@@ -16,17 +15,13 @@ public class ApplicationController {
 	@Autowired
 	private UserService userService;
 	
-	
-	
-	
 	@RequestMapping("/")
 	public String homepage() {
 		return "welcomepage";
 	}
-	@RequestMapping("/incorrect")
-	public String incorrect() {
-		return "incorrect";
-	}
+	
+	
+	//@RequestMapping(value="/incorrect", method = RequestMethod.GET)
 	
 	@RequestMapping("/newUser")
 	public String registerFirst() {
@@ -38,6 +33,8 @@ public class ApplicationController {
 		return "welcome";
 	}
 	
+	
+	
 	 @RequestMapping(value="/register", method = RequestMethod.GET)
 	    public String saveUser(ModelMap model){
 	        return "register";
@@ -47,10 +44,12 @@ public class ApplicationController {
 	 public String saveUser(ModelMap model,@RequestParam String email,@RequestParam String firstname,@RequestParam String lastname,@RequestParam int age,@RequestParam String password){
 		
 		 User user=new User(email, firstname,lastname,age,password);
-		 userService.saveMyUser(user);
-			return "login"; 
-	       
+		 return userService.saveMyUser(user);   
 	 }
+	 
+	 public String userExists() {
+			return "userExists";
+		}
 	 
 	 @RequestMapping(value="/login", method = RequestMethod.GET)
 	    public String userLogin(){
@@ -62,7 +61,12 @@ public class ApplicationController {
 		 return userService.login(user);
 	 }
 	 
-	 
+	 @RequestMapping("/incorrect")
+		public String incorrect() {
+			//incorrect1();
+		return	"incorrect";	
+		}
+		
 	 
 	 @RequestMapping(value="/forgotpassword", method = RequestMethod.GET)
 	    public String emailPasswordVarify(ModelMap model){

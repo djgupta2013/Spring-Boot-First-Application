@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" >
-
+<head>
 <style >
   
 
 body {
   margin: 0;
   padding: 0;
-  background: #f0f5f5;
+  background: #ff0000;
   font-size: 20px;
   color: #222;
   font-family: 'Roboto', sans-serif;
@@ -167,13 +167,18 @@ button.social-signin.google {
 }
 </style>
 
-<head>
+
   <meta charset="UTF-8">
   <title>Material design sign up form</title>
   
   
   
       <link rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+ 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js"></script>
 
   
 </head>
@@ -205,7 +210,6 @@ button.social-signin.google {
   </div>
   <div class="or">OR</div>
 </div>
-  
   
 
 </body>

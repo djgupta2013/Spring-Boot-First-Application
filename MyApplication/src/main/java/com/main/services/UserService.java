@@ -30,14 +30,15 @@ public class UserService {
 //		 Long email=(long) user.getEmail().hashCode();
 		List<User> user1=userRepository.findByEmail(user.getEmail());
 		System.out.println(user.getEmail());
+		String pageName = "";
 	
 		if(!user1.isEmpty() && user1.get(0).getEmail().equals(user.getEmail())) {
-			return "User already exist";
+			pageName=applicationController.userExists();
 		}
 		else {
 		userRepository.save(user);
 		}
-		return "";
+		return pageName;
 	}
 	
 	//login
@@ -45,13 +46,14 @@ public class UserService {
 		User user2= userRepository.findByEmailAndPassword(user.getEmail(), user.getPassword());
 		List<User> user1=userRepository.findByEmail(user.getEmail());
 		String pageName = "";
-		 try {
+		try {
 			 if (user2!=null ) {
 					if( user2.getEmail().equalsIgnoreCase(user.getEmail())&&user2.getPassword().equals(user.getPassword())) {
 						pageName = applicationController.welcome();
 					}	
 				}
-			 else if(user1.get(0).getEmail().equals(user.getEmail())){
+			 
+			 else if(user1.get(0).getEmail().equalsIgnoreCase(user.getEmail())){
 			pageName = applicationController.incorrect();				
 		}
 		 } catch (Exception e) {
@@ -71,7 +73,7 @@ public class UserService {
 				int flag=userRepository.setPasswordByEmail(user.getPassword(), user.getEmail());
 				if(flag == 1)
 				System.out.println(flag);
-				page=applicationController.userLogin();
+				page=applicationController.homepage();
 				}
 			}
 		} catch (Exception e) {
