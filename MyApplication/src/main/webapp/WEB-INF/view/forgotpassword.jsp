@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org">
+<html >
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <style>
@@ -19,7 +19,7 @@ input[type=email], input[type=password],input[type=submit]{
     box-sizing: border-box;
 }
 
-button {
+submit {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -29,7 +29,7 @@ button {
     width: 100%;
 }
 
-button:hover {
+submit:hover {
     opacity: 0.8;
 }
 
@@ -48,11 +48,6 @@ text-align: center;
     
 }
 
-img.avatar {
-margin-left:400px;
-    width: 15%;
-    border-radius: 25%;
-}
 
 .container {
     padding: 12px;

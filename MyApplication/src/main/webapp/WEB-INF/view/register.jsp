@@ -169,7 +169,7 @@ button.social-signin.google {
 
 
   <meta charset="UTF-8">
-  <title>Material design sign up form</title>
+  <title>sign up form</title>
   
   
   

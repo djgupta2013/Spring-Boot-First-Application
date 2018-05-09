@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="f" %>
+
+<html >
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <style>
 body {
 font-family: Arial, Helvetica, sans-serif;
@@ -10,7 +10,7 @@ background-color: #f0f5f5;
 }
 form {border: 3px solid #f1f1f1;}
 
-input[type=email], input[type=password] ,input[type=submit]{
+ input[type=number],input[type=submit]{
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -66,10 +66,7 @@ margin-left:400px;
     margin-right:200px;
 }
 
-span.psw {
-    float: right;
-    padding-top: 16px;
-}
+
 span.register {
     float: left;
     padding-top: 20px;
@@ -86,36 +83,21 @@ span.register {
     }
 }
 </style>
+<title>Otp verification form</title>
 </head>
-<body class="heading">
-<div>
-<h2>Welcome to login page</h2>
-</div>
+<body>
 
-<f:form action="login"  method="POST">
-  <div class="imgcontainer">
-    <img src="../static/image/download.jpg" alt="Avatar" class="avatar">
+<form action="otpVerify"  method="POST" >
+<div class="container">
+   
+    <label for="repsw"><b>Please enter otp</b></label>
+    <input type="number" placeholder="Enter otp" name="otp" minlength="5" required/>
+
+    
+     
+   <input type="submit"   value="submit" >
+    
   </div>
-
-  <div class="container">
-    <label for="uname"><b>E-mail id</b></label>
-    <input type="email" placeholder="Enter Email id" name="email" required/>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" minlength="5" required/>
-        
-   <input type="submit"   value="Login" >
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
-
-  <div class="container" style="background-color:#f1f1f1">
-    <!-- <button type="button" class="cancelbtn">Cancel</button> -->
-    <span class="psw"><a href="forgotpassword">Forgot  password</a></span>
-    <span class="register"><a href="register">New Registration</a></span>
-  </div>
-</f:form>
-
+</form>
 </body>
 </html>

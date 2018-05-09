@@ -11,6 +11,8 @@ public class User {
 	
 	@Id
 	private int id;
+	//@Transient
+	private int otp;
 	private String email;
 	private String firstname;
 	private String lastname;
@@ -28,31 +30,40 @@ public class User {
 		this.email = email;	
 	}
 	
+	public User(String email, String password ,int otp) {
+		this.email = email;
+		this.password = password;
+		this.otp=otp;
+	}
+	
 	public User(String email, String password) {
-		this.email = email;
-		this.password = password;
-	}
-	
-	public User(String email, String password, String repassword) {
 		super();
 		this.email = email;
 		this.password = password;
-		this.repassword = repassword;
+		
 	}
 	
-	public User(String email, String firstname, String lastname, int age, String password) {
-		super();
+	public User(String email, String firstname, String lastname, int age, String password ,int otp) {
+	
 		this.email = email;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.age = age;
 		this.password = password;
+		this.otp=otp;
 	}
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public int getOtp() {
+		return otp;
+	}
+	public void setOtp(int otp) {
+		this.otp = otp;
 	}
 	
 	
